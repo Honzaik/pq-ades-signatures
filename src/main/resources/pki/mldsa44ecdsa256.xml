@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pki xmlns="http://pki-factory.nowina.lu/pki-factory" name="mldsa44ecdsa256pki">
+
+    <certificate>
+        <serialNumber>100</serialNumber>
+        <subject>Composite PQ Root Authority</subject>
+        <issuer serialNumber="100">Composite PQ Root Authority</issuer>
+        <notBefore year="-1"/>
+        <notAfter year="1"/>
+        <keyAlgo encryption="MLDSA44-ECDSA-P256-SHA256"/>
+        <digestAlgo>SHA256</digestAlgo>
+        <keyUsages>
+            <keyUsage>crlSign</keyUsage>
+            <keyUsage>keyCertSign</keyUsage>
+        </keyUsages>
+        <extendedKeyUsages>
+            <extendedKeyUsage>1.3.6.1.5.5.7.3.9</extendedKeyUsage> <!-- ocsp-signing -->
+        </extendedKeyUsages>
+        <ca/>
+        <ocspNoCheck/>
+        <trustAnchor/>
+    </certificate>
+
+    <certificate>
+        <serialNumber>120</serialNumber>
+        <subject>Composite PQ TSA</subject>
+        <issuer serialNumber="100">Composite PQ Root Authority</issuer>
+        <notBefore month="-11"/>
+        <notAfter month="11"/>
+        <keyAlgo encryption="MLDSA44-ECDSA-P256-SHA256"/>
+        <digestAlgo>SHA256</digestAlgo>
+        <keyUsages>
+            <keyUsage>digitalSignature</keyUsage>
+        </keyUsages>
+        <extendedKeyUsages>
+            <extendedKeyUsage>1.3.6.1.5.5.7.3.8</extendedKeyUsage> <!-- time-stamping -->
+        </extendedKeyUsages>
+        <crl>Composite PQ Root Authority</crl>
+        <ocsp>Composite PQ Root Authority</ocsp>
+    </certificate>
+
+    <certificate>
+        <serialNumber>102</serialNumber>
+        <subject>Composite PQ CA 1</subject>
+        <issuer serialNumber="100">Composite PQ Root Authority</issuer>
+        <notBefore month="-11"/>
+        <notAfter month="11"/>
+        <keyAlgo encryption="MLDSA44-ECDSA-P256-SHA256"/>
+        <digestAlgo>SHA256</digestAlgo>
+        <keyUsages>
+            <keyUsage>crlSign</keyUsage>
+            <keyUsage>keyCertSign</keyUsage>
+        </keyUsages>
+        <extendedKeyUsages>
+            <extendedKeyUsage>1.3.6.1.5.5.7.3.9</extendedKeyUsage> <!-- ocsp-signing -->
+        </extendedKeyUsages>
+        <ca/>
+        <crl>Composite PQ Root Authority</crl>
+        <ocsp>Composite PQ Root Authority</ocsp>
+    </certificate>
+
+    <certificate>
+        <serialNumber>110</serialNumber>
+        <subject>Jan Oupický</subject>
+        <issuer serialNumber="102">Composite PQ Root Authority</issuer>
+        <notBefore month="-11"/>
+        <notAfter month="11"/>
+        <keyAlgo encryption="MLDSA44-ECDSA-P256-SHA256"/>
+        <digestAlgo>SHA256</digestAlgo>
+        <keyUsages>
+            <keyUsage>nonRepudiation</keyUsage>
+        </keyUsages>
+        <crl>Composite PQ CA 1</crl>
+        <ocsp>Composite PQ CA 1</ocsp>
+        <caIssuers>Composite PQ CA 1</caIssuers>
+    </certificate>
+
+    <certificate>
+        <serialNumber>155</serialNumber>
+        <subject>John Doe</subject>
+        <issuer serialNumber="102">Composite PQ Root Authority</issuer>
+        <notBefore month="-11"/>
+        <notAfter month="11"/>
+        <keyAlgo encryption="MLDSA44-ECDSA-P256-SHA256" />
+        <digestAlgo>SHA256</digestAlgo>
+        <keyUsages>
+            <keyUsage>nonRepudiation</keyUsage>
+        </keyUsages>
+        <crl>Composite PQ CA 1</crl>
+        <ocsp>Composite PQ CA 1</ocsp>
+        <revocation month="-1" reason="keyCompromise"/>
+    </certificate>
+
+</pki>
