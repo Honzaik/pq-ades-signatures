@@ -12,6 +12,8 @@ We tested all code on Java 21. Note that at the time of writing, e.g., Java 25 i
 
 BouncyCastle is built using its own included Gradle version. Other libraries and the final project is built with Maven 3.9.11.
 
+We provide detailed instalation instructions below. However, if one does not want to build everything from scratch, we provide pre-built JARs at https://github.com/Honzaik/pq-ades-signatures/tree/main/prebuilt  
+
 ## Forked BouncyCastle installation
 First, we build our BouncyCastle fork and install it into our local Maven repository.
 
