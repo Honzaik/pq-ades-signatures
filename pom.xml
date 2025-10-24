@@ -170,7 +170,7 @@
             </build>
         </profile>
         <profile>
-            <id>buildMain</id>
+            <id>buildSigner</id>
             <build>
                 <plugins>
                     <plugin>
