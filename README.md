@@ -60,7 +60,7 @@ This concerns the benchmark part of our implementation.
 ## Build
 Assuming this repository is cloned. To build the benchmark executable run
 ```
-mvn package spring-boot:repackage -P buildBenchmarksJAR 
+mvn package spring-boot:repackage -P buildBenchmarks
 ```
 
 This creates a standalone executable in the `target/` directory with the name `AdESBenchmark.jar`
@@ -82,6 +82,8 @@ Example execution command:
 java -jar AdESBenchmark.jar 50 500 "ecdsa256" "mldsa44;mldsa65;mldsa87" "mldsa44ecdsa256;mldsa65ecdsa384;mldsa87ecdsa384"
 ```
 
+*Note that the files used in this benchmark (the files that are signed) must be located and named `inputs/input.xml` for XAdES and CAdES, and `inputs/input.pdf` for PAdES. For example, as done here https://github.com/Honzaik/pq-ades-signatures/tree/main/inputs*
+
 Regarding post-quantum hybrid AdES, it supports composite hybrids and sequential hybrids (application of a purely post-quantum archival timestamp). Composite hybrids are specified explicitly as parameters whereas sequential hybrids are automatically created by pairing each classical algorithm with a purely post-quantum algorithm. Therefore, in the above example, the benchmark runs 3 different sequential hybrids (each with the same classical component: ECDSA P256).
 
 ## Benchmark description
@@ -93,15 +95,13 @@ The signing and verification files have identical formats where each line repres
 
 The size results file has analogous format except the measured values are in bytes (and without std. dev.).
 
-Note that the files used in this benchmark (the files that are signed) must be located and named `inputs/input.xml` for XAdES and CAdES, and `inputs/input.pdf` for PAdES. For example, as done here https://github.com/Honzaik/pq-ades-signatures/tree/main/inputs
-
 # Signing tool build and usage
 This concerns the signing tool part of our implementation.
 
 ## Build
-Assuming this repository is cloned. To build the benchmark executable run
+Assuming this repository is cloned. To build the signing tool executable run
 ```
-mvn package spring-boot:repackage -P buildBenchmarksJAR 
+mvn package spring-boot:repackage -P buildBenchmarks 
 ```
 
 This creates a standalone executable in the `target/` directory with the name `AdESBenchmark.jar`
