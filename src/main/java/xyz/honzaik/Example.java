@@ -26,7 +26,6 @@ public class Example
     private static SignatureLevel signatureLevel;
     private static SignerMode signerMode;
     private static File inputFile;
-    private static File outputFile;
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException
     {
@@ -64,34 +63,7 @@ public class Example
         Validator documentValidator = new Validator(pkis, signerMode);
         documentValidator.validateSignature(outputFile, null);
         LOG.info("validation completed");
-//
-//        Signer documentSigner = new Signer(pkis, SignerMode.SEQUENTIAL_HYBRID, "Jan Oupický");
-//        documentSigner.signFile("input.pdf", "input_signed.pdf", SignatureFormat.PAdES, SignatureLevel.PAdES_BASELINE_LTA);
-//        LOG.info("@@@@@@@@@@@@@@@@@@@@@@@@");
-//        LOG.info("signature finished");
-//        LOG.info("beginning validation");
-//        Validator documentValidator = new Validator(pkis, SignerMode.SEQUENTIAL_HYBRID);
-//        documentValidator.validateEmbeddedSignature("input_signed.pdf");
-////        LOG.info("validation completed");
 
-//        Signer documentSigner = new Signer(pkis, SignerMode.PURELY_PQ, "Jan Oupický");
-//        documentSigner.signFile("input.xml", "input_signed.p12", SignatureFormat.CAdES, SignatureLevel.CAdES_BASELINE_LTA);
-//        LOG.info("@@@@@@@@@@@@@@@@@@@@@@@@");
-//        LOG.info("signature finished");
-//        LOG.info("beginning validation");
-//        Validator documentValidator = new Validator(pkis, SignerMode.PURELY_PQ);
-//        documentValidator.validateEmbeddedSignature("input_signed.p12");
-//        LOG.info("validation completed");
-
-
-//        Signer documentSigner = new Signer(pkis, SignerMode.CLASSICAL, "Jan Oupický");
-//        documentSigner.signFile("input.xml", "input_signed.json", SignatureFormat.JAdES, SignatureLevel.JAdES_BASELINE_LT);
-//        LOG.info("@@@@@@@@@@@@@@@@@@@@@@@@");
-//        LOG.info("signature finished");
-//        LOG.info("beginning validation");
-//        Validator documentValidator = new Validator(pkis, SignerMode.CLASSICAL);
-//        documentValidator.validateEmbeddedSignature("input_signed.json");
-//        LOG.info("validation completed");
     }
 
     private static void parseArgs(String[] args)
@@ -118,10 +90,10 @@ public class Example
                 signatureFormat = SignatureFormat.PAdES;
                 signatureLevel = SignatureLevel.PAdES_BASELINE_LTA;
             }
-            case "jades" -> {
-                signatureFormat = SignatureFormat.JAdES;
-                signatureLevel = SignatureLevel.JAdES_BASELINE_LTA;
-            }
+//            case "jades" -> {
+//                signatureFormat = SignatureFormat.JAdES;
+//                signatureLevel = SignatureLevel.JAdES_BASELINE_LTA;
+//            }
             default -> throw new IllegalArgumentException("Unknown format: " + format);
         }
 
@@ -145,7 +117,7 @@ public class Example
             case XAdES: return ".signed.xml";
             case CAdES: return ".signed.p12";
             case PAdES: return ".signed.pdf";
-            case JAdES: return ".signed.json";
+//            case JAdES: return ".signed.json";
         }
         throw new IllegalArgumentException("Unknown signature format: " + signatureFormat);
     }

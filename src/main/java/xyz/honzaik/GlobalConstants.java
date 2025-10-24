@@ -12,7 +12,7 @@ public abstract class GlobalConstants
 
     public static final String CLASSICAL_PKI_NAME = "ecdsa256";
     public static final String PURELY_PQ_PKI_NAME = "mldsa44";
-    public static final String COMPOSITE_PKI_NAME = "mldsa65ecdsa384";
+    public static final String COMPOSITE_PKI_NAME = "mldsa44ecdsa256";
 
     public static final String CLASSICAL_PKI_KEYSTORE_PREFIX = "classical";
     public static final String PURELY_PQ_PKI_KEYSTORE_PREFIX = "purelyPQ";

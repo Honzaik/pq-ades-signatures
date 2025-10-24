@@ -101,9 +101,21 @@ This concerns the signing tool part of our implementation.
 ## Build
 Assuming this repository is cloned. To build the signing tool executable run
 ```
-mvn package spring-boot:repackage -P buildBenchmarks 
+mvn package spring-boot:repackage -P buildSigner 
 ```
 
-This creates a standalone executable in the `target/` directory with the name `AdESBenchmark.jar`
+This creates a standalone executable in the `target/` directory with the name `Signer.jar`
 
-## How to execute benchmarks
+## How to use the signer
+The signer executable expects 3 arguments
+```
+java -jar AdESBenchmark.jar [format] [signingMode] [inputFilePath]
+```
+where
+- `[format]` indicates the AdES signature format to be used. The available options are `xades`, `cades`, `pades`. Note that PAdES can be only used with PDF files. 
+- `[signingMode]` indicates the type of signature algorithm to be used. There are 4 options: `classical` (signs with ECDSA P-256), `purelypq` (signs with ML-DSA-44), `composite` (signs with a composite signature from ECDSA P-256 + ML-DSA-44) and `sequential` (signs with ECDSA P-256 and applies ML-DSA-44 archival timestamp).
+- `[inputFilePath]` path to the file to be signed. The signed file is stored at the same location with the additional suffix `.signed.*` (depending on the format).
+
+Note that the signer is a proof-of-concept and becase of that it only signs with the above specified algorithms, only in the B-LTA level and applies enveloping signature.
+
+However, the existing code can be easily modified to be generalized.
